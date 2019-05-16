@@ -3,32 +3,53 @@
 #include <sstream>
 #include <cmath>
 #include <string>
+#include <vector>
 
 using namespace std; 
 
-void cpk(char *inputfile){
-    ifstream fin(inputfile); 
-    
-    if (fin.is_open() && fin.good())
+void cpk_haden_en(char *inputfile){
+    ifstream fin; 
+    fin.open(inputfile,ios::in);  
+    int rollnum (0), roll2 (0), count (0); 
+    vector<string> row; 
+    string line, word, temp; 
+    while ( fin >> temp)
     {
-        string line; 
-        while (getline(fin,line))
+        row.clear(); 
+        getline(fin,line); 
+        stringstream s(line); 
+
+        while (getline(s,word,','))
         {
-            cout << line;
+            row.push_back(word);
         }
         
-    }
-    
+        roll2 = stoi(row[0]); 
+  
+        if (roll2 == rollnum) { 
+            cout << "hi" ; 
+        } 
+    }  
 }
 int main(int argc, char *argv[]){
-    if (argc > 1)
+    stringstream str_in;
+    str_in << argv[2]; 
+    if (argc > 1 && argc <=3)
     {
-        cout << "The program running file : " << argv[1] << endl;
-        cpk(argv[1]);
+        cout << "The program running file : " << argv[1] << "  Vertion of part : " << str_in.str() << endl;
+        if (str_in.str() == "HADEN_EN")
+        {
+            cpk_haden_en(argv[1]);
+        }else
+        {
+            cout << argv[2] << endl; 
+            cout << "Pleses select Vertion of part ex. HADEN_EN" << endl; 
+            return 1; 
+        }
     }
     else
     {
-        cout << "plese input your file" << endl;
+        cout << "Error input program" << endl;
     }
     
     return 0; 
