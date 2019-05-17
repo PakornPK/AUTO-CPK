@@ -5,18 +5,28 @@
 #include <string>
 #include <vector>
 #include <iterator>
-using namespace std; 
+#include <algorithm>
+#include <algorithm>
+#include <cstdlib>
+
+template <typename T, size_t N> const T* mybegin(const T (&a)[N]) { return a; }    
+template <typename T, size_t N> const T* myend  (const T (&a)[N]) { return a+N; }
+
+using namespace std;
+
 
 void cpk_haden_en(char *inputfile){
     ifstream fin; 
     fin.open(inputfile,ios::in);  
     int rollnum (0), roll2 (0), count;
-    double sum,avr;  
-    count =0; 
-    sum = 0;
-    avr =0; 
+    double sum_v,avr_v,max_v,min_v,SD_v;  
     vector<string> row; 
+    vector<double> d_value; 
+    vector<double>::iterator vptr;
     string line, word, temp;
+    count = 0;
+    cout << "Maxvale_A | PositionX_A | PositionY_A" << endl; 
+    cout << "-------------------------------------"<< endl; 
     while ( fin >> temp)
     {
         row.clear(); 
@@ -28,8 +38,7 @@ void cpk_haden_en(char *inputfile){
             row.push_back(word);
         }
         
-        stringstream cs;
-        //copy(row.begin(), row.end(),ostream_iterator<string>(cs,"\n"));
+        stringstream va,xa,ya;
 
         int counter;
         double number;
@@ -41,21 +50,42 @@ void cpk_haden_en(char *inputfile){
             counter++;
             if (counter == 9)
             {
-                cs << *ptr; 
-                cs >> number;
-                sum +=number;
-                cout << count << ". "<< number << endl; 
+                va << *ptr; 
+                va >> number;
+                d_value.push_back(number); 
+                sum_v +=number;
+                cout << count << ". "<< number << " | "; 
                 number = 0; 
             }
-            
+            if (counter == 21)
+            {
+                xa << *ptr; 
+                xa >> number;    
+                cout << number << " | ";
+                number = 0; 
+            }
+            if (counter == 24)
+            {
+                ya << *ptr; 
+                ya >> number;    
+                cout << number << " | "<< endl; 
+                number = 0; 
+            }
         } 
+        
         count++;                
     }  
-    avr = sum/count;
+    max_v = *max_element(d_value.begin(),d_value.end()); 
+    min_v = *min_element(d_value.begin(),d_value.end()); 
+    avr_v = sum_v/(count-1);
+ 
     cout << "-----------------------------------------" << endl; 
-    cout << "AVR = " << avr << endl; 
-    cout << "SUM = "<< sum << endl; 
+    cout << "AVR = " << avr_v << endl; 
+    cout << "SUM = " << sum_v << endl;
+    cout << "MAX = " << max_v << endl;
+    cout << "MIN = " << min_v << endl;
 }
+
 int main(int argc, char *argv[]){
     stringstream str_in;
     str_in << argv[2]; 
