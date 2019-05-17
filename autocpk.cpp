@@ -4,7 +4,7 @@
 #include <cmath>
 #include <string>
 #include <vector>
-
+#include <iterator>
 using namespace std; 
 
 void cpk_haden_en(char *inputfile){
@@ -24,10 +24,11 @@ void cpk_haden_en(char *inputfile){
             row.push_back(word);
         }
         
-        roll2 = stoi(row[0]); 
+        stringstream cs;
+        copy(row.begin(), row.end(),ostream_iterator<string>(cs,"\n"));
   
         if (roll2 == rollnum) { 
-            cout << "hi" ; 
+            cout << cs.str() ; 
         } 
     }  
 }
