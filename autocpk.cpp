@@ -10,9 +10,13 @@ using namespace std;
 void cpk_haden_en(char *inputfile){
     ifstream fin; 
     fin.open(inputfile,ios::in);  
-    int rollnum (0), roll2 (0), count (0); 
+    int rollnum (0), roll2 (0), count;
+    double sum,avr;  
+    count =0; 
+    sum = 0;
+    avr =0; 
     vector<string> row; 
-    string line, word, temp; 
+    string line, word, temp;
     while ( fin >> temp)
     {
         row.clear(); 
@@ -25,12 +29,32 @@ void cpk_haden_en(char *inputfile){
         }
         
         stringstream cs;
-        copy(row.begin(), row.end(),ostream_iterator<string>(cs,"\n"));
-  
-        if (roll2 == rollnum) { 
-            cout << cs.str() ; 
+        //copy(row.begin(), row.end(),ostream_iterator<string>(cs,"\n"));
+
+        int counter;
+        double number;
+        counter = 0;
+        number = 0;  
+        vector<string>::iterator ptr;
+        for(ptr = row.begin(); ptr != row.end(); ++ptr)
+        {
+            counter++;
+            if (counter == 9)
+            {
+                cs << *ptr; 
+                cs >> number;
+                sum +=number;
+                cout << count << ". "<< number << endl; 
+                number = 0; 
+            }
+            
         } 
+        count++;                
     }  
+    avr = sum/count;
+    cout << "-----------------------------------------" << endl; 
+    cout << "AVR = " << avr << endl; 
+    cout << "SUM = "<< sum << endl; 
 }
 int main(int argc, char *argv[]){
     stringstream str_in;
