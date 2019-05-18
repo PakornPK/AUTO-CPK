@@ -6,8 +6,8 @@
 #include <vector>
 #include <iterator>
 #include <algorithm>
-#include <algorithm>
 #include <cstdlib>
+#include <numeric>
 
 template <typename T, size_t N> const T* mybegin(const T (&a)[N]) { return a; }    
 template <typename T, size_t N> const T* myend  (const T (&a)[N]) { return a+N; }
@@ -21,7 +21,7 @@ void cpk_haden_en(char *inputfile){
     int rollnum (0), roll2 (0), count;
     double sum_v,avr_v,max_v,min_v,SD_v;  
     vector<string> row; 
-    vector<double> d_value; 
+    vector<double> d_value,d_value2; 
     vector<double>::iterator vptr;
     string line, word, temp;
     count = 0;
@@ -52,7 +52,8 @@ void cpk_haden_en(char *inputfile){
             {
                 va << *ptr; 
                 va >> number;
-                d_value.push_back(number); 
+                d_value.push_back(number);
+                d_value2.push_back(pow(number,2)); 
                 sum_v +=number;
                 cout << count << ". "<< number << " | "; 
                 number = 0; 
@@ -75,8 +76,13 @@ void cpk_haden_en(char *inputfile){
         
         count++;                
     }  
+    double zixma_v2,rtop,rbot; 
+    zixma_v2 = accumulate(d_value2.begin(),d_value2.end(),0);
     max_v = *max_element(d_value.begin(),d_value.end()); 
     min_v = *min_element(d_value.begin(),d_value.end()); 
+    rtop = ((count-1)*zixma_v2)-pow(sum_v,2);
+    rbot = (count-1)*(count-2);
+    SD_v = sqrt(rtop/rbot);
     avr_v = sum_v/(count-1);
  
     cout << "-----------------------------------------" << endl; 
@@ -84,6 +90,7 @@ void cpk_haden_en(char *inputfile){
     cout << "SUM = " << sum_v << endl;
     cout << "MAX = " << max_v << endl;
     cout << "MIN = " << min_v << endl;
+    cout << "S.D. = " << SD_v << endl;
 }
 
 int main(int argc, char *argv[]){
