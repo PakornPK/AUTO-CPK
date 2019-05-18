@@ -73,7 +73,10 @@ void cpk_haden_en(char *inputfile){
         
         count++;                
     }  
-    double zixma_v2,rtop,rbot; 
+    double zixma_v2,rtop,rbot,usl,lsl,cp,cpkl,cpku,cpk;
+    vector<double> cpk_select;  
+    usl = 900.0; 
+    lsl = 540.0; 
     zixma_v2 = accumulate(d_value2.begin(),d_value2.end(),0);
     max_v = *max_element(d_value.begin(),d_value.end()); 
     min_v = *min_element(d_value.begin(),d_value.end()); 
@@ -81,6 +84,12 @@ void cpk_haden_en(char *inputfile){
     rbot = (count-1)*(count-2);
     SD_v = sqrt(rtop/rbot);
     avr_v = sum_v/(count-1);
+    cp = (max_v-min_v)/(6*SD_v); 
+    cpkl = (avr_v-min_v)/(3*SD_v);
+    cpku = (max_v-avr_v)/(3*SD_v);
+    cpk_select.push_back(cpkl);
+    cpk_select.push_back(cpku); 
+    cpk  = *min_element(cpk_select.begin(),cpk_select.end());
  
     cout << "-----------------------------------------" << endl; 
     cout << "AVR = " << avr_v << endl; 
@@ -88,6 +97,7 @@ void cpk_haden_en(char *inputfile){
     cout << "MAX = " << max_v << endl;
     cout << "MIN = " << min_v << endl;
     cout << "S.D. = " << SD_v << endl;
+    cout << "CPK = " << cpk << endl;
 }
 
 int main(int argc, char *argv[]){
