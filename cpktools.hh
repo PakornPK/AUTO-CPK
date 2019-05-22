@@ -11,8 +11,8 @@ class CPKTools{
     public: 
         double STDEV(vector<double> data); 
         double AVR(vector<double> data); 
-        double RANG(vector<double> data); 
-        double CPK(double max, double min , double avr , double stdev, int select); 
+        double RANGE(vector<double> data); 
+        double CPK(double max, double min , double avr , double stdev, char select); 
         double MAX(vector<double> data);
         double MIN(vector<double> data);
 }; 
