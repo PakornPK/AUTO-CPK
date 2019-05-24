@@ -4,6 +4,9 @@
 #include <algorithm>
 #include <cstdlib>
 #include <numeric>
+#include <cmath>
+#include <fstream>
+#include <sstream>
 
 using namespace std; 
 

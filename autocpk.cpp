@@ -20,7 +20,7 @@ void cpk_haden_en(char *inputfile){
     vector<string> row; 
     vector<double> d_value,d_value2; 
     vector<double>::iterator vptr;
-    string line, word, temp;
+    string line, _word, temp;
     count = 0;
     cout << "Maxvale_A | PositionX_A | PositionY_A" << endl; 
     cout << "-------------------------------------"<< endl; 
@@ -30,9 +30,9 @@ void cpk_haden_en(char *inputfile){
         getline(fin,line); 
         stringstream s(line); 
 
-        while (getline(s,word,','))
+        while (getline(s,_word,','))
         {
-            row.push_back(word);
+            row.push_back(_word);
         }
         
         stringstream va,xa,ya;

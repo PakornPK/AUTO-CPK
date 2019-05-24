@@ -27,7 +27,6 @@ double CPKTools::STDEV(vector<double> data){
     vector<double>::iterator ptr; 
     double power_num, rtop, rbot, zixma_v2,sum_v,SD_v;
 
-    vector<double>::iterator ptr; 
     for (ptr =data.begin(); ptr != data.end(); ++ptr)
     {
         power_num = 0; 
@@ -45,7 +44,7 @@ double CPKTools::STDEV(vector<double> data){
 
 double CPKTools::CPK(double maxx, double minn , double avr , double stdev, char select){
     vector<double> cpk_select; 
-    double cp, usl, lsl, cpkl, cpku, cpk, cpkl, cpku; 
+    double cp, usl, lsl, cpk, cpkl, cpku; 
     usl = 900.0;
     lsl = 540.0; 
     cp = (maxx-minn)/(6*stdev); 
@@ -69,3 +68,4 @@ double CPKTools::CPK(double maxx, double minn , double avr , double stdev, char 
         return -1; 
     }
 }
+
