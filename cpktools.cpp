@@ -42,11 +42,10 @@ double CPKTools::STDEV(vector<double> data){
     return SD_v; 
 }
 
-double CPKTools::CPK(double maxx, double minn , double avr , double stdev, char select){
+double CPKTools::CPK(double maxx, double minn , double avr , double stdev, double lsl, double usl, char select){
     vector<double> cpk_select; 
-    double cp, usl, lsl, cpk, cpkl, cpku; 
-    usl = 900.0;
-    lsl = 540.0; 
+    double cp, cpk, cpkl, cpku; 
+
     cp = (maxx-minn)/(6*stdev); 
     cpkl = (avr-minn)/(3*stdev);
     cpku = (maxx-avr)/(3*stdev);
@@ -62,9 +61,12 @@ double CPKTools::CPK(double maxx, double minn , double avr , double stdev, char 
     }else if (select == 'U')
     {
         return cpku; 
-    }else
+    }else if (select == 'C')
     {
-        cout << "Error function N = normal CPK L = lower CPK U = Upper CPK" << endl;
+        return cp; 
+    }else    
+    {
+        cout << "Error function : N = normal CPK ,L = lower CPK ,U = Upper CPK ,C = Cp" << endl;
         return -1; 
     }
 }
