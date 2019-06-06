@@ -534,7 +534,6 @@ void cpk_haden_co(char *inputfile){
         _max[7] = cpk.MAX(buf7); 
         _max[8] = cpk.MAX(buf8); 
 
-// ............... here 
         _cp[0] = cpk.CPK(_max[0],_min[0],avr[0],_stdev[0],35,105,'C'); 
         _cp[1] = cpk.CPK(_max[1],_min[1],avr[1],_stdev[1],13.12,13.72,'C'); 
         _cp[2] = cpk.CPK(_max[2],_min[2],avr[2],_stdev[2],77.18,77.78,'C');
@@ -545,76 +544,76 @@ void cpk_haden_co(char *inputfile){
         _cp[7] = cpk.CPK(_max[7],_min[7],avr[7],_stdev[7],33.88,34.48,'C'); 
         _cp[8] = cpk.CPK(_max[8],_min[8],avr[8],_stdev[8],70.83,71.43,'C');
 
-        _cpkl[0] = cpk.CPK(_max[0],_min[0],avr[0],_stdev[0],300.0,600.0,'L'); 
-        _cpkl[1] = cpk.CPK(_max[1],_min[1],avr[1],_stdev[1],34.1,34.7,'L'); 
-        _cpkl[2] = cpk.CPK(_max[2],_min[2],avr[2],_stdev[2],71.81,72.41,'L');
-        _cpkl[3] = cpk.CPK(_max[3],_min[3],avr[3],_stdev[3],25.0,75.0,'L'); 
-        _cpkl[4] = cpk.CPK(_max[4],_min[4],avr[4],_stdev[4],54.85,55.45,'L'); 
-        _cpkl[5] = cpk.CPK(_max[5],_min[5],avr[5],_stdev[5],78.16,78.76,'L');
-        _cpkl[6] = cpk.CPK(_max[6],_min[6],avr[6],_stdev[6],25.0,75.0,'L'); 
-        _cpkl[7] = cpk.CPK(_max[7],_min[7],avr[7],_stdev[7],54.85,55.45,'L'); 
-        _cpkl[8] = cpk.CPK(_max[8],_min[8],avr[8],_stdev[8],67,67.6,'L');
+        _cpkl[0] = cpk.CPK(_max[0],_min[0],avr[0],_stdev[0],35,105,'L'); 
+        _cpkl[1] = cpk.CPK(_max[1],_min[1],avr[1],_stdev[1],13.12,13.72,'L'); 
+        _cpkl[2] = cpk.CPK(_max[2],_min[2],avr[2],_stdev[2],77.18,77.78,'L');
+        _cpkl[3] = cpk.CPK(_max[3],_min[3],avr[3],_stdev[3],35,105,'L'); 
+        _cpkl[4] = cpk.CPK(_max[4],_min[4],avr[4],_stdev[4],13.12,13.72,'L'); 
+        _cpkl[5] = cpk.CPK(_max[5],_min[5],avr[5],_stdev[5],66.02,66.62,'L');
+        _cpkl[6] = cpk.CPK(_max[6],_min[6],avr[6],_stdev[6],175,525,'L'); 
+        _cpkl[7] = cpk.CPK(_max[7],_min[7],avr[7],_stdev[7],33.88,34.48,'L'); 
+        _cpkl[8] = cpk.CPK(_max[8],_min[8],avr[8],_stdev[8],70.83,71.43,'L');
 
-        _cpku[0] = cpk.CPK(_max[0],_min[0],avr[0],_stdev[0],300.0,600.0,'U'); 
-        _cpku[1] = cpk.CPK(_max[1],_min[1],avr[1],_stdev[1],34.1,34.7,'U'); 
-        _cpku[2] = cpk.CPK(_max[2],_min[2],avr[2],_stdev[2],71.81,72.41,'U');
-        _cpku[3] = cpk.CPK(_max[3],_min[3],avr[3],_stdev[3],25.0,75.0,'U'); 
-        _cpku[4] = cpk.CPK(_max[4],_min[4],avr[4],_stdev[4],54.85,55.45,'U'); 
-        _cpku[5] = cpk.CPK(_max[5],_min[5],avr[5],_stdev[5],78.16,78.76,'U');
-        _cpku[6] = cpk.CPK(_max[6],_min[6],avr[6],_stdev[6],25.0,75.0,'U'); 
-        _cpku[7] = cpk.CPK(_max[7],_min[7],avr[7],_stdev[7],54.85,55.45,'U'); 
-        _cpku[8] = cpk.CPK(_max[8],_min[8],avr[8],_stdev[8],67,67.6,'U');
+        _cpku[0] = cpk.CPK(_max[0],_min[0],avr[0],_stdev[0],35,105,'U'); 
+        _cpku[1] = cpk.CPK(_max[1],_min[1],avr[1],_stdev[1],13.12,13.72,'U'); 
+        _cpku[2] = cpk.CPK(_max[2],_min[2],avr[2],_stdev[2],77.18,77.78,'U');
+        _cpku[3] = cpk.CPK(_max[3],_min[3],avr[3],_stdev[3],35,105,'U'); 
+        _cpku[4] = cpk.CPK(_max[4],_min[4],avr[4],_stdev[4],13.12,13.72,'U'); 
+        _cpku[5] = cpk.CPK(_max[5],_min[5],avr[5],_stdev[5],66.02,66.62,'U');
+        _cpku[6] = cpk.CPK(_max[6],_min[6],avr[6],_stdev[6],175,525,'U'); 
+        _cpku[7] = cpk.CPK(_max[7],_min[7],avr[7],_stdev[7],33.88,34.48,'U'); 
+        _cpku[8] = cpk.CPK(_max[8],_min[8],avr[8],_stdev[8],70.83,71.43,'U');
 
-        _cpk[0] = cpk.CPK(_max[0],_min[0],avr[0],_stdev[0],300.0,600.0,'N'); 
-        _cpk[1] = cpk.CPK(_max[1],_min[1],avr[1],_stdev[1],34.1,34.7,'N'); 
-        _cpk[2] = cpk.CPK(_max[2],_min[2],avr[2],_stdev[2],71.81,72.41,'N');
-        _cpk[3] = cpk.CPK(_max[3],_min[3],avr[3],_stdev[3],25.0,75.0,'N'); 
-        _cpk[4] = cpk.CPK(_max[4],_min[4],avr[4],_stdev[4],54.85,55.45,'N'); 
-        _cpk[5] = cpk.CPK(_max[5],_min[5],avr[5],_stdev[5],78.16,78.76,'N');
-        _cpk[6] = cpk.CPK(_max[6],_min[6],avr[6],_stdev[6],25.0,75.0,'N'); 
-        _cpk[7] = cpk.CPK(_max[7],_min[7],avr[7],_stdev[7],54.85,55.45,'N'); 
-        _cpk[8] = cpk.CPK(_max[8],_min[8],avr[8],_stdev[8],67,67.6,'N');  
+        _cpk[0] = cpk.CPK(_max[0],_min[0],avr[0],_stdev[0],35,105,'N'); 
+        _cpk[1] = cpk.CPK(_max[1],_min[1],avr[1],_stdev[1],13.12,13.72,'N'); 
+        _cpk[2] = cpk.CPK(_max[2],_min[2],avr[2],_stdev[2],77.18,77.78,'N');
+        _cpk[3] = cpk.CPK(_max[3],_min[3],avr[3],_stdev[3],35,105,'N'); 
+        _cpk[4] = cpk.CPK(_max[4],_min[4],avr[4],_stdev[4],13.12,13.72,'N'); 
+        _cpk[5] = cpk.CPK(_max[5],_min[5],avr[5],_stdev[5],66.02,66.62,'N');
+        _cpk[6] = cpk.CPK(_max[6],_min[6],avr[6],_stdev[6],175,525,'N'); 
+        _cpk[7] = cpk.CPK(_max[7],_min[7],avr[7],_stdev[7],33.88,34.48,'N'); 
+        _cpk[8] = cpk.CPK(_max[8],_min[8],avr[8],_stdev[8],70.83,71.43,'N');  
 
         fout << "CPK" << ',' <<"REPORT HADEN COVER" << endl; 
-        fout << ' ' << ',' << "Norminal Value(cc)" << ',' << 600
-            << ',' << "Norminal Value(mm)" << ',' << 34.4
-            << ',' << "Norminal Value(mm)" << ',' << 72.11
-            << ',' << "Norminal Value(cc)" << ',' << 50
-            << ',' << "Norminal Value(mm)" << ',' << 55.15
-            << ',' << "Norminal Value(nn)" << ',' << 78.46
-            << ',' << "Norminal Value(cc)" << ',' << 50
-            << ',' << "Norminal Value(mm)" << ',' << 55.15
-            << ',' << "Norminal Value(mm)" << ',' << 67.3 << "\n";
+        fout << ' ' << ',' << "Norminal Value(cc)" << ',' << 70
+            << ',' << "Norminal Value(mm)" << ',' << 13.42
+            << ',' << "Norminal Value(mm)" << ',' << 77.48
+            << ',' << "Norminal Value(cc)" << ',' << 70
+            << ',' << "Norminal Value(mm)" << ',' << 13.42
+            << ',' << "Norminal Value(nn)" << ',' << 66.32
+            << ',' << "Norminal Value(cc)" << ',' << 350
+            << ',' << "Norminal Value(mm)" << ',' << 34.18
+            << ',' << "Norminal Value(mm)" << ',' << 71.13 << "\n";
 
-        fout << ' ' << ',' << "Tolerances" << ',' << 300
+        fout << ' ' << ',' << "Tolerances" << ',' << 35
             << ',' << "Tolerances" << ',' << 0.3
             << ',' << "Tolerances" << ',' << 0.3  
-            << ',' << "Tolerances" << ',' << 25
+            << ',' << "Tolerances" << ',' << 35
             << ',' << "Tolerances" << ',' << 0.3
             << ',' << "Tolerances" << ',' << 0.3 
-            << ',' << "Tolerances" << ',' << 25
+            << ',' << "Tolerances" << ',' << 175
             << ',' << "Tolerances" << ',' << 0.3
             << ',' << "Tolerances" << ',' << 0.3 << "\n";
         
-        fout << ' ' << ',' << "USL" << ',' << 900
-            << ',' << "USL" << ',' << 34.7
-            << ',' << "USL" << ',' << 72.41 
-            << ',' << "USL" << ',' << 75
-            << ',' << "USL" << ',' << 55.45
-            << ',' << "USL" << ',' << 78.76 
-            << ',' << "USL" << ',' << 75
-            << ',' << "USL" << ',' << 55.45
-            << ',' << "USL" << ',' << 67.6 << "\n"; 
+        fout << ' ' << ',' << "USL" << ',' << 105
+            << ',' << "USL" << ',' << 13.72
+            << ',' << "USL" << ',' << 77.78 
+            << ',' << "USL" << ',' << 105
+            << ',' << "USL" << ',' << 13.72
+            << ',' << "USL" << ',' << 66.62 
+            << ',' << "USL" << ',' << 525
+            << ',' << "USL" << ',' << 34.48
+            << ',' << "USL" << ',' << 71.43 << "\n"; 
 
-        fout << ' ' << ',' << "LSL" << ',' << 300
-            << ',' << "LSL" << ',' << 34.1
-            << ',' << "LSL" << ',' << 71.81
-            << ',' << "LSL" << ',' << 25
-            << ',' << "LSL" << ',' << 54.85
-            << ',' << "LSL" << ',' << 78.16 
-            << ',' << "LSL" << ',' << 25
-            << ',' << "LSL" << ',' << 54.85
-            << ',' << "LSL" << ',' << 67 << "\n"; 
+        fout << ' ' << ',' << "LSL" << ',' << 35
+            << ',' << "LSL" << ',' << 13.12
+            << ',' << "LSL" << ',' << 77.18
+            << ',' << "LSL" << ',' << 35
+            << ',' << "LSL" << ',' << 13.12
+            << ',' << "LSL" << ',' << 66.02 
+            << ',' << "LSL" << ',' << 175
+            << ',' << "LSL" << ',' << 33.88
+            << ',' << "LSL" << ',' << 70.83 << "\n"; 
         
         fout << ' ' ; 
         for (size_t i = 0; i <= 8; i++)
@@ -747,7 +746,13 @@ int main(int argc, char *argv[]){
             if (str_in.str() == "HADEN_EN")
             {
                 cpk_haden_en(argv[1]); 
-            }else{
+            }
+            else if (str_in.str() == "HADEN_CO")
+            {
+                cpk_haden_co(argv[1]); 
+            }
+            else
+            {
                 cout << "Pleses select Vertion of part ex. HADEN_EN" << endl; 
                 return 1; 
             }
